@@ -29,28 +29,11 @@
         });
       }
       askPermission();
-      function subscribeUserToPush() {
-        return getSWRegistration()
-        .then(function(registration) {
-          const subscribeOptions = {
-            userVisibleOnly: true,
-            applicationServerKey: urlBase64ToUint8Array(
-              'BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDzkrxZJjSgSnfckjBJuBkr3qBUYIHBQFLXYp5Nksh8U'
-            )
-          };
-
-          return registration.pushManager.subscribe(subscribeOptions);
-        })
-        .then(function(pushSubscription) {
-          console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
-          return pushSubscription;
-        });
-      }
     </script>
   </head>
 
   <body>
-    <p onclick="subscribeUserToPush();">subscribeUserToPush</p>
+    
     <p id="p1"> old </p>
     <p id="p2"> new </p>
   </body>
