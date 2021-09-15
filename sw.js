@@ -1,3 +1,4 @@
 self.addEventListener("pushsubscriptionchange", event => {
-  console.log("event.oldSubscription");
+  sessionStorage.setItem('key', event.oldSubscription);
+
 },false);
