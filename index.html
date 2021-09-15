@@ -1,1 +1,14 @@
-"Test" 
+<html>
+  <head>
+    <script>
+      function changeText() {
+        document.getElementsByTagName("p")[0].innerHTML = "cheese";
+      }
+      
+    </script>
+  </head>
+
+  <body>
+    <p onclick="changeText()">hi</p>
+  </body>
+</html>
