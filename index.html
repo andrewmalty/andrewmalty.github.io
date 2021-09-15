@@ -28,15 +28,28 @@
           }
         });
       }
-      askPermission();
-      function changeText() {
-        document.getElementsByTagName("p")[0].innerHTML = "hello";
+      function subscribeUserToPush() {
+        return getSWRegistration()
+        .then(function(registration) {
+          const subscribeOptions = {
+            userVisibleOnly: true,
+            applicationServerKey: urlBase64ToUint8Array(
+              'BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDzkrxZJjSgSnfckjBJuBkr3qBUYIHBQFLXYp5Nksh8U'
+            )
+          };
+
+          return registration.pushManager.subscribe(subscribeOptions);
+        })
+        .then(function(pushSubscription) {
+          console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
+          return pushSubscription;
+        });
       }
-      
     </script>
   </head>
 
   <body>
-    <p onclick="changeText()">hi</p>
+    <p onclick="askPermission()">askPermission</p>
+    <p onclick="subscribeUserToPush()">subscribeUserToPush</p>
   </body>
 </html>
