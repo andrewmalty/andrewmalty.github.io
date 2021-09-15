@@ -1,3 +1,3 @@
 self.addEventListener("pushsubscriptionchange", event => {
-  document.getElementById("p1").innerHTML = event.oldSubscription;
+  console.log("event.oldSubscription");
 },false);
