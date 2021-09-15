@@ -60,12 +60,14 @@
           return pushSubscription;
         });
       }
-      subscribeUserToPush();
+      function unsubscribeUserToPush() {
+      }
     </script>
   </head>
 
   <body>
-    
+    <p onClick="subscribeUserToPush()">Subscribe</p>
+    <p onClick="unsubscribeUserToPush()">Unsubscribe</p>
     <p id="p1"> old </p>
     <p id="p2"> new </p>
   </body>
